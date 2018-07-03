@@ -2,71 +2,57 @@
 
 ## 한글 포함시
 
-`template.tex` 파일 작성: `lualatex`에서 한글 사용 및 글꼴 설정
-```
-\usepackage{kotex}
-\setmainfont{SourceHanSansKR}
-% \setsanshangulfont{SourceHanSansKR}
-% \setmonohangulfont{D2coding}
+- `template.tex` 파일 작성: `lualatex`에서 한글 사용 및 글꼴 설정
+  ```
+  \usepackage{kotex}
+  \setmainfont{SourceHanSerifKR}
+  \setsansfont{SourceHanSansKR}
+  \setmonofont{D2coding}
+  ```
+  [참고] 이밖에 유용한 명령어들: 
+  `\setmainhangulfont`, `\setmainhanjafont`, `\setmainfallbackfont`,
+  `\setsanshangulfont`, `\setsanshanjafont`, `\setsansfallbackfont`,
+  `\setmonohangulfont`, `\setmonohanjafont`, `\setmonofallbackfont`,
+  `\newhangulfontfamily`, `\newhanjafontfamily`, `\newfallbackfontfamily`, 
+  `\addhangulfontfeature`, `\addhanjafontfeature`, `\addfallbackfontfeature`,
+  `\hangulfontspec`, `\hanjafontspec`, `\fallbackfontspec`
 
-% \setmainhangulfont
-% \setmainhanjafont
-% \setmainfallbackfont
-% \setsanshangulfont
-% \setsanshanjafont
-% \setsansfallbackfont
-% \setmonohangulfont
-% \setmonohanjafont
-% \setmonofallbackfont
-% \newhangulfontfamily
-% \newhanjafontfamily
-% \newfallbackfontfamily
-% \addhangulfontfeature
-% \addhanjafontfeature
-% \addfallbackfontfeature
-% \hangulfontspec
-% \hanjafontspec
-% \fallbackfontspec
-```
 
-`test.md` 파일 작성:
-```
-# Head 1
+- 마크다운 파일(여기서는 `test.md`) 작성:
+  ```
+  # 1수준
+  한글을 씁니다.
 
-한글을 씁니다.
+  ## 2수준
+  한글을 씁니다.
+  ```
 
-## 2수준
 
-재밌네.
-```
+- 코맨드 창에서:
 
-코맨드 창에서:
+    - `pdf` 출력시
+      ```
+      > pandoc test.md -o test.pdf --include-in-header=template.tex --latex-engine=lualatex
 
-- `pdf` 출력시
+      또는
 
-```
-> pandoc test.md -o test.pdf --include-in-header=template.tex --latex-engine=lualatex
+      > pandoc test.md -o test.pdf --include-in-header=template.tex --variable=mainfont:"SourceHanSansKR" --latex-engine=lualatex
+      ```
 
-또는
+    - `tex` 출력시
+      ```
+      > pandoc test.md -o test.tex --include-in-header=template.tex --latex-engine=lualatex
 
-> pandoc test.md -o test.pdf --include-in-header=template.tex --variable=mainfont:"SourceHanSansKR" --latex-engine=lualatex
-```
+      또는
 
-- `tex` 출력시
+      > pandoc test.md -o test.tex --include-in-header=template.tex --variable=mainfont:"SourceHanSansKR" --latex-engine=lualatex
+      ```
 
-```
-> pandoc test.md -o test.tex --include-in-header=template.tex --latex-engine=lualatex
-
-또는
-
-> pandoc test.md -o test.tex --include-in-header=template.tex --variable=mainfont:"SourceHanSansKR" --latex-engine=lualatex
-```
-
-후에 `test.tex`을 compile
+      후에 `test.tex`을 compile
 
 
 
-[참고] `pandoc` 명령줄 옵션
+[참고] `pandoc`(version 1.19.2.1) 명령줄 옵션
 ```
 pandoc [OPTIONS] [FILES]
   -f FORMAT, -r FORMAT  --from=FORMAT, --read=FORMAT
