@@ -8,6 +8,9 @@
   \setmainfont{SourceHanSerifKR}
   \setsansfont{SourceHanSansKR}
   \setmonofont{D2coding}
+
+  % MS-word style page margin
+  \usepackage[top=3cm, left=2.54cm, right=2.54cm, bottom=2.54cm]{geometry}
   ```
   [참고] 이밖에 유용한 명령어들: 
   `\setmainhangulfont`, `\setmainhanjafont`, `\setmainfallbackfont`,
@@ -30,25 +33,25 @@
 
 - 코맨드 창에서:
 
-    - `pdf` 출력시
-      ```
-      > pandoc test.md -o test.pdf --include-in-header=template.tex --latex-engine=lualatex
+  - `pdf` 출력시
+    ```
+    > pandoc test.md -o test.pdf --include-in-header=template.tex --latex-engine=lualatex
 
-      또는
+    또는
 
-      > pandoc test.md -o test.pdf --include-in-header=template.tex --variable=mainfont:"SourceHanSansKR" --latex-engine=lualatex
-      ```
+    > pandoc test.md -o test.pdf --include-in-header=template.tex --variable=mainfont:"SourceHanSansKR" --latex-engine=lualatex
+    ```
 
-    - `tex` 출력시
-      ```
-      > pandoc test.md -o test.tex --include-in-header=template.tex --latex-engine=lualatex
+  - `tex` 출력시
+    ```
+    > pandoc test.md -o test.tex --include-in-header=template.tex --latex-engine=lualatex
 
-      또는
+    또는
 
-      > pandoc test.md -o test.tex --include-in-header=template.tex --variable=mainfont:"SourceHanSansKR" --latex-engine=lualatex
-      ```
+    > pandoc test.md -o test.tex --include-in-header=template.tex --variable=mainfont:"SourceHanSansKR" --latex-engine=lualatex
+    ```
 
-      후에 `test.tex`을 compile
+    후에 `test.tex`을 compile
 
 
 
